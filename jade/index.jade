@@ -1,0 +1,45 @@
+//output: ../index.html, pretty:true
+doctype html
+html(lang="en")
+  head
+    title= WIDTH
+    link(rel="stylesheet", type="text/css", href="css/tools/normalize.css")
+    link(rel="stylesheet", type="text/css", href="css/master.css")  
+  body
+    header
+      #playerOneScore
+        h1 left: 
+          span 00
+      #winner
+        h1 player 
+          span left 
+          | won
+      #playerTwoScore
+        h1 right: 
+          span 00
+    #menu
+      #container
+        #logo
+          img(src="img/logo.png", alt="Logo")
+        nav
+          ul
+            li
+              a(href="http:#") Rules
+            li
+              a(href="http:#") Play
+            li
+              a(href="http:#") Replay
+    #gameTable
+      section#playerOne
+        nav
+          ul
+            li.one
+            li.two
+            li.three
+      section#playerTwo
+        nav
+          ul
+            li.one
+            li.two
+            li.three
+  script(type="text/javascript", src="js/main.js")

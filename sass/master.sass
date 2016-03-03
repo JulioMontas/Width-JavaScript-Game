@@ -1,0 +1,138 @@
+// compileNested: ../css/master.css
+
+//////////////
+//          ////////////////
+//  Global  //
+//          ////////////////
+//////////////
+
+body
+  margin: 0
+  background-color: #333333
+  font-family: sans-serif
+  letter-spacing: 2px
+  color: #FFFFFF
+
+//////////////
+//          ////////////////
+//  HEADER  //
+//          ////////////////
+//////////////
+
+header
+ top: 0
+ z-index: 5
+ width: 100%
+ height: 45px
+ display: flex
+ flex-direction: row
+ justify-content: space-around
+ align-items: baseline
+ text-transform: uppercase
+ font-size: 10px;
+
+#playerOneScore h1,
+#playerTwoScore h1,
+#winner h1
+    font-weight: 100;
+
+#playerOneScore h1 span,
+#playerTwoScore h1 span,
+#winner h1 span
+    font-weight: 600
+
+// Display it if someone wins
+#winner
+  display: none
+
+//////////////////////////
+//                      ////////////////////////////
+//  Center Menu + Logo  //
+//                      ////////////////////////////
+//////////////////////////
+
+// with this type of display you can only touch the div
+#menu
+  display: flex
+  align-items: center
+  justify-content: center
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+
+#menu #container
+    height: 140px
+    width: 664px
+    text-align: center
+
+#menu #container nav ul
+    list-style-type: none
+    margin-top: 30px
+
+#menu #container ul li:first-child
+    margin-left: 0px
+
+#menu #container ul li
+  display: inline
+  margin-left: 30px
+
+#menu #container ul li a
+    background: #444
+    padding: 11px 35px
+    text-decoration: none
+    text-transform: uppercase
+    border-radius: 20px
+    font-size: 13px
+
+#menu #container ul li a:hover
+  background: #666
+
+// Remove the navigation when the game start.
+#menu #container nav
+  display: none
+
+//Remove the REPLAY button
+#menu #container ul li:last-child
+  display: none
+
+////////////////////
+//                ///////////////////////
+//  Player Style  //
+//                ///////////////////////
+////////////////////
+
+#gameTable
+    display: flex
+
+#gameTable section#playerOne
+    order: 1
+
+#gameTable section#playerTwo
+    order: 2
+    flex-direction: initial
+
+#playerOne nav ul li.one
+    background: #3B596A
+    width: 90px
+
+#playerOne nav ul li.two
+    background: lightblue
+    width: 200px
+
+#playerOne nav ul li.three
+    background: #3B596A
+    width: 500px
+
+#playerTwo nav ul li.one
+    background: #3F9A82
+    width: 500px
+
+#playerTwo nav ul li.two
+    background: lightgreen
+    width: 500px
+
+#playerTwo nav ul li.three
+    background: #3F9A82
+    width: 50px
