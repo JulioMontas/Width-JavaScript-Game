@@ -28,11 +28,11 @@ Round Zero
 */
 
 
-var leftPlayer = document.querySelector("#playerOne");
-for (var i = 0; i < 50; i++) {
-  leftPlayer.style.width = "50%" + i;
-
-}
-
-var leftPlayer = document.querySelector("#playerTwo");
-leftPlayer.style.width = "50%";
+// var leftPlayer = document.querySelector("#playerOne");
+// for (var i = 0; i < 50; i++) {
+//   leftPlayer.style.width = "50%" + i;
+//
+// }
+//
+// var leftPlayer = document.querySelector("#playerTwo");
+// leftPlayer.style.width = "50%";

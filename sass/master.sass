@@ -79,19 +79,20 @@ header
   margin-left: 30px
 
 #menu #container ul li a
-    background: #444
-    padding: 11px 35px
-    text-decoration: none
-    text-transform: uppercase
-    border-radius: 20px
-    font-size: 13px
+  color: #fff
+  background: #444
+  padding: 11px 35px
+  text-decoration: none
+  text-transform: uppercase
+  border-radius: 20px
+  font-size: 13px
 
 #menu #container ul li a:hover
   background: #666
 
 // Remove the navigation when the game start.
 #menu #container nav
-  display: none
+//  display: none
 
 //Remove the REPLAY button
 #menu #container ul li:last-child
@@ -99,40 +100,61 @@ header
 
 ////////////////////
 //                ///////////////////////
-//  Player Style  //
+//  Player Style  // Player 1/2
 //                ///////////////////////
 ////////////////////
 
 #gameTable
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: -1
+
+#gameTable section#one,
+#gameTable section#two,
+#gameTable section#three
+    height: 33.3333333%
     display: flex
 
-#gameTable section#playerOne
-    order: 1
-
-#gameTable section#playerTwo
-    order: 2
-    flex-direction: initial
-
-#playerOne nav ul li.one
+#gameTable section#one section.playerOne,
+#gameTable section#two section.playerOne,
+#gameTable section#three section.playerOne
     background: #3B596A
-    width: 90px
 
-#playerOne nav ul li.two
-    background: lightblue
-    width: 200px
-
-#playerOne nav ul li.three
-    background: #3B596A
-    width: 500px
-
-#playerTwo nav ul li.one
+#gameTable section#two section.playerTwo,
+#gameTable section#one section.playerTwo,
+#gameTable section#three section.playerTwo
     background: #3F9A82
-    width: 500px
 
-#playerTwo nav ul li.two
-    background: lightgreen
-    width: 500px
+#gameTable section#one section.playerOne,
+#gameTable section#three section.playerOne,
+#gameTable section#two section.playerTwo
+  margin-right: auto
 
-#playerTwo nav ul li.three
-    background: #3F9A82
-    width: 50px
+#gameTable section#two section.playerOne,
+#gameTable section#one section.playerTwo,
+#gameTable section#three section.playerTwo
+  margin-left: auto;
+
+// Section One
+#gameTable section#one section.playerOne
+    width: 1%
+
+#gameTable section#one section.playerTwo
+    width: 1%
+
+// Section Two
+#gameTable section#two section.playerTwo
+    width: 1%
+
+#gameTable section#two section.playerOne
+    width: 1%
+
+// Section Three
+#gameTable section#three section.playerOne
+    width: 1%
+
+#gameTable section#three section.playerTwo
+    width: 1%
