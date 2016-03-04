@@ -81,26 +81,41 @@ header {
 
 #gameTable section#one,
 #gameTable section#two,
-#gameTable section#three {
-  height: 33.3333333%;
+#gameTable section#three,
+#gameTable section#four,
+#gameTable section#five,
+#gameTable section#six {
+  height: 16.6666667%;
   display: flex; }
 
 #gameTable section#one section.playerOne,
 #gameTable section#two section.playerOne,
-#gameTable section#three section.playerOne {
+#gameTable section#three section.playerOne,
+#gameTable section#four section.playerOne,
+#gameTable section#five section.playerOne,
+#gameTable section#six section.playerOne {
   background: #3B596A; }
 
-#gameTable section#two section.playerTwo,
 #gameTable section#one section.playerTwo,
-#gameTable section#three section.playerTwo {
+#gameTable section#two section.playerTwo,
+#gameTable section#three section.playerTwo,
+#gameTable section#four section.playerTwo,
+#gameTable section#five section.playerTwo,
+#gameTable section#six section.playerTwo {
   background: #3F9A82; }
 
 #gameTable section#one section.playerOne,
+#gameTable section#two section.playerTwo,
 #gameTable section#three section.playerOne,
-#gameTable section#two section.playerTwo {
+#gameTable section#four section.playerOne,
+#gameTable section#five section.playerTwo,
+#gameTable section#six section.playerOne {
   margin-right: auto; }
 
-#gameTable section#two section.playerOne,
 #gameTable section#one section.playerTwo,
-#gameTable section#three section.playerTwo {
+#gameTable section#two section.playerOne,
+#gameTable section#three section.playerTwo,
+#gameTable section#four section.playerTwo,
+#gameTable section#five section.playerOne,
+#gameTable section#six section.playerTwo {
   margin-left: auto; }
