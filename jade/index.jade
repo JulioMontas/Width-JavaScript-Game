@@ -4,19 +4,22 @@ html(lang="en")
   head
     title= WIDTH
     link(rel="stylesheet", type="text/css", href="css/tools/normalize.css")
+    link(rel="stylesheet", type="text/css", href="css/tools/font-awesome.min.css")
     link(rel="stylesheet", type="text/css", href="css/master.css")  
   body
     header
       #playerOneScore
-        h1 left: 
-          span 00
+        h1 left 
+          i.fa.fa-female
+          span  00
       #winner
-        h1 player 
+        h1 player
           span left 
           | won
       #playerTwoScore
-        h1 right: 
-          span 00
+        h1 right 
+          i.fa.fa-male
+          span  00
     #menu
       #container
         #logo
@@ -24,11 +27,11 @@ html(lang="en")
         nav
           ul
             li
-              a(href="#") Rules
+              a#rules(href="#") Rules 
             li
-              a(href="#") Play
+              a#play(href="#") Play
             li
-              a(href="#") Replay
+              a#replay(href="#") Replay
     #gameTable
       section#one
         section.playerOne
