@@ -8,6 +8,8 @@ console.log("O~~        O~~     O~~  O~~       O~~   O~~   O~~   O~~  O~~    O~ 
 console.log("O~~~~~~~~    O~~~~     O~~         O~~  O~~~~~      O~~  O~~      O~~    O~~~~~   ")
 
 // Calling all Global variables
+var nameLeft = "Left"
+var nameRight = "Right"
 var started = false;
 var header = document.querySelector('header');
 var menu = document.querySelector('nav');
@@ -64,7 +66,7 @@ function start() {
 
 function gameReset() {
 
-  console.log("Is Header in the MFH!!!");
+  console.log("Is Header in the MOTHER FUCKING HOUSE!!!");
   header.style.display = 'flex';
   menu.style.display = 'none';
 
@@ -72,6 +74,7 @@ function gameReset() {
   for (var i = 0; i < playerOneWidth.length; i++) {
     playerOneWidth[i].style.width = randomOne + '%';
   }
+
   randomTwo = 0;
   for (var i = 0; i < playerTwoWidth.length; i++) {
     playerTwoWidth[i].style.width = randomTwo + '%';
@@ -86,23 +89,24 @@ function gameReset() {
 /////////////////////////////////////////////
 
 function gameControl() {
+  console.log("Game Control Loading UPPPP");
   window.addEventListener("keydown", function(e){
 
     // Player One, Press Tab to play.
     if(e.keyCode === 9 && document.activeElement !== 'text') {
       e.preventDefault();
       console.log("Player One" + randomOne);
-      randomOne += 10;
+      randomOne += 100;
       for (var i = 0; i < playerOneWidth.length; i++) {
         playerOneWidth[i].style.width = randomOne + '%';
+        console.log(i )
       }
     }
-
     // Player Two, Press Enter to play.
-    if(e.keyCode === 13 && document.activeElement !== 'text') {
+    if(e.keyCode === 16 && document.activeElement !== 'text') {
       e.preventDefault();
       console.log("Player Two" + randomTwo);
-      randomTwo += 10;
+      randomTwo += 100;
       for (var i = 0; i < playerTwoWidth.length; i++) {
         playerTwoWidth[i].style.width = randomTwo + '%';
       }
@@ -112,5 +116,17 @@ function gameControl() {
     var playerOneScore = document.querySelector('#OneScore'); playerOneScore.innerHTML = " " + randomOne;
     var playerTwoScore = document.querySelector('#TwoScore'); playerTwoScore.innerHTML = " " + randomTwo;
 
+    winner();
+
   });
+}
+
+function winner(){
+  if (randomOne == 100) {
+    alert(setInterval + nameLeft + " " + "You WIN!")
+    gameReset();
+  } else if (randomTwo == 100) {
+    alert(setInterval + nameRight + " " + "You WIN!")
+    gameReset();
+  }
 }

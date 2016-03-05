@@ -9,17 +9,19 @@ html(lang="en")
   body
     header
       #playerOneScore
-        h1 left 
-          i.fa.fa-female
+        h1 
+          i.fa.fa-female.fa-lg
+          |  left  
           span#OneScore 
       #winner
         h1 player
           span left 
           | won
       #playerTwoScore
-        h1 right 
-          i.fa.fa-male
-          span#TwoScore 
+        h1 
+          span#TwoScore
+          |  right   
+          i.fa.fa-male.fa-lg
     #menu
       #container
         #logo
@@ -35,21 +37,15 @@ html(lang="en")
     #gameTable
       section#one
         section.playerOne
-        section.playerTwo  
       section#two
         section.playerTwo
-        section.playerOne
       section#three
         section.playerOne
-        section.playerTwo
       section#four
-        section.playerOne
         section.playerTwo  
       section#five
-        section.playerTwo
         section.playerOne
       section#six
-        section.playerOne
         section.playerTwo
         
   script(type="text/javascript", src="js/main.js")
