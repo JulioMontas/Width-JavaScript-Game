@@ -5,6 +5,8 @@
     <link rel="stylesheet" type="text/css" href="css/tools/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/tools/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/master.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>$(document).ready(function () { $('body').hide().fadeIn(2500).delay(6000)});</script>
   </head>
   <body>
     <header>
@@ -20,11 +22,24 @@
     </header>
     <div id="menu">
       <div id="container">
-        <div id="logo"><img src="img/logo.png" alt="Logo"></div>
+        <div id="logo"><img src="img/logo.png" alt="Logo">
+          <h3 id="slogan">< Who can take over the screen ></h3>
+        </div>
         <nav>
           <ul>
             <li><a id="rules" href="#">Rules </a></li>
-            <li><a id="play" href="#">Play</a></li>
+            <li><a id="play" href="#">Play</a>
+              <audio id="beep-one" preload="auto">
+                <source src="sound/mouseclik.wav" controls="">Your browser isn't invited for super fun audio time.
+              </audio>
+              <script>
+                var beepOne = $("#beep-one")[0];
+                $("a")
+                .mouseenter(function() {
+                beepOne.play();
+                });
+              </script>
+            </li>
             <li><a id="replay" href="#">Replay</a></li>
           </ul>
         </nav>

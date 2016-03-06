@@ -22,6 +22,7 @@ var playerTwoWins = 0;
 
 var header = document.querySelector('header');
 var menu = document.querySelector('nav');
+var slogan = document.querySelector('#slogan');
 
 var displayGameTable = document.querySelector('#gameTable');
 
@@ -69,6 +70,8 @@ console.log("LAYER ONE");
 function start() {
   header.style.display = 'flex';
   menu.style.display = 'none';
+  slogan.style.display = 'none';
+
   gameReset();
   gameControl();
 }
