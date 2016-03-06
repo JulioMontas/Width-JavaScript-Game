@@ -30,6 +30,9 @@ header {
 #winner {
   display: none; }
 
+#rules, #replay {
+  display: none; }
+
 #menu {
   display: flex;
   align-items: center;
@@ -67,9 +70,6 @@ header {
 
 #menu #container ul li a:hover {
   background: #666; }
-
-#menu #container ul li:last-child {
-  display: none; }
 
 #gameTable {
   position: absolute;
@@ -120,8 +120,8 @@ header {
 #gameTable section#six section.playerTwo {
   margin-left: auto; }
 
-.fa.fa-female {
+#playerOneScore .fa.fa-male {
   color: #3B596A; }
 
-.fa.fa-male {
+#playerTwoScore .fa.fa-male {
   color: #3F9A82; }

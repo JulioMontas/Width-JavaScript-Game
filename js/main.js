@@ -7,31 +7,40 @@ console.log("O~~      O~~        O~~  O~~~~~~ O~~    O~~    O~~  O~~  O~~   O~ O
 console.log("O~~        O~~     O~~  O~~       O~~   O~~   O~~   O~~  O~~    O~ ~~   O~~    O~ ")
 console.log("O~~~~~~~~    O~~~~     O~~         O~~  O~~~~~      O~~  O~~      O~~    O~~~~~   ")
 
+// When you win
+// you going to show who won. and also a manu, and also a short cut to keep playing the game faster.
+// How do i add the value of
+
+
+// Do i need two function for game play and replay?
+
 // Calling all Global variables
 var nameLeft = "Left"
 var nameRight = "Right"
-var started = false;
+var playerOneWins = 0;
+var playerTwoWins = 0;
+
 var header = document.querySelector('header');
 var menu = document.querySelector('nav');
 
 var displayGameTable = document.querySelector('#gameTable');
 
 // Calling all Global variables of player one
-var randomOne = Math.ceil(Math.random() * 100);
-var playerOneHits = randomOne + "%";
-
+var widthOne = Math.ceil(Math.random() * 100);
+var widthOneHits = widthOne + "%";
+// Reading each class from section
 var playerOneWidth = document.querySelectorAll('.playerOne');
 for (var i = 0; i < playerOneWidth.length; i++) {
-  playerOneWidth[i].style.width = playerOneHits;
+  playerOneWidth[i].style.width = widthOneHits;
 }
 
 // Calling all Global variables of player Two
-var randomTwo = Math.ceil(Math.random() * 100);
-var playerTwoHits = randomTwo + "%";
-
+var widthTwo = Math.ceil(Math.random() * 100);
+var widthTwoHits = widthTwo + "%";
+// Reading each class from section
 var playerTwoWidth = document.querySelectorAll('.playerTwo');
 for (var i = 0; i < playerTwoWidth.length; i++) {
-  playerTwoWidth[i].style.width = playerTwoHits;
+  playerTwoWidth[i].style.width = widthTwoHits;
 }
 
 //////////////////////
@@ -45,6 +54,12 @@ playButton.addEventListener('click', function() {
   start();
 });
 
+var playButton = document.querySelector('#replay');
+playButton.addEventListener('click', function() {
+  gameReset();
+});
+
+console.log("LAYER ONE");
 ////////////////////////////////////////////////////////////////////////////
 //                                                                        //
 // Load up everything that you need for the games. ( Your Treasure Box )  //
@@ -52,8 +67,8 @@ playButton.addEventListener('click', function() {
 ////////////////////////////////////////////////////////////////////////////
 
 function start() {
-  console.log("Let's Play <--- WIDTH --->");
-  started = true;
+  header.style.display = 'flex';
+  menu.style.display = 'none';
   gameReset();
   gameControl();
 }
@@ -65,20 +80,31 @@ function start() {
 //////////////////////////////////////
 
 function gameReset() {
+  console.log("LAYER TWO: Game Reset");
 
-  console.log("Is Header in the MOTHER FUCKING HOUSE!!!");
-  header.style.display = 'flex';
-  menu.style.display = 'none';
-
-  randomOne = 0;
+  widthOne = 0;
   for (var i = 0; i < playerOneWidth.length; i++) {
-    playerOneWidth[i].style.width = randomOne + '%';
+    playerOneWidth[i].style.width = widthOne + '%';
   }
 
-  randomTwo = 0;
+  widthTwo = 0;
   for (var i = 0; i < playerTwoWidth.length; i++) {
-    playerTwoWidth[i].style.width = randomTwo + '%';
+    playerTwoWidth[i].style.width = widthTwo + '%';
   }
+
+  // Display the game score for both players.
+  var playerOneHits = document.querySelector('#oneTotalHits');
+  playerOneHits.innerHTML = playerOneWins + " ";
+
+  var playerTwoHits = document.querySelector('#twoTotalHits');
+  playerTwoHits.innerHTML = " " + playerTwoWins;
+
+  // Display the % of the width size.
+  var playerOneWidthSize = document.querySelector('#OneScore');
+  playerOneWidthSize.innerHTML = " " + widthOne + "%";
+
+  var playerTwoWidthSize = document.querySelector('#TwoScore');
+  playerTwoWidthSize.innerHTML = " " + widthTwo + "%";
 
 }
 
@@ -89,44 +115,57 @@ function gameReset() {
 /////////////////////////////////////////////
 
 function gameControl() {
-  console.log("Game Control Loading UPPPP");
+  console.log("LAYER THREE: Game Control Loading UPPPP" + "" + "Real Time");
   window.addEventListener("keydown", function(e){
-
     // Player One, Press Tab to play.
     if(e.keyCode === 9 && document.activeElement !== 'text') {
       e.preventDefault();
-      console.log("Player One" + randomOne);
-      randomOne += 100;
+      console.log("Player One" + widthOne);
+      widthOne += 10;
       for (var i = 0; i < playerOneWidth.length; i++) {
-        playerOneWidth[i].style.width = randomOne + '%';
-        console.log(i )
+        playerOneWidth[i].style.width = widthOne + '%';
       }
     }
     // Player Two, Press Enter to play.
     if(e.keyCode === 16 && document.activeElement !== 'text') {
       e.preventDefault();
-      console.log("Player Two" + randomTwo);
-      randomTwo += 100;
+      console.log("Player Two" + widthTwo);
+      widthTwo += 10;
       for (var i = 0; i < playerTwoWidth.length; i++) {
-        playerTwoWidth[i].style.width = randomTwo + '%';
+        playerTwoWidth[i].style.width = widthTwo + '%';
       }
     }
 
-    // Display the game score for both players.
-    var playerOneScore = document.querySelector('#OneScore'); playerOneScore.innerHTML = " " + randomOne;
-    var playerTwoScore = document.querySelector('#TwoScore'); playerTwoScore.innerHTML = " " + randomTwo;
+    // Display the % of the width size but in REAL TIME
+    var playerOneWidthSize = document.querySelector('#OneScore');
+    playerOneWidthSize.innerHTML = " " + widthOne + "%";
 
+    var playerTwoWidthSize = document.querySelector('#TwoScore');
+    playerTwoWidthSize.innerHTML = " " + widthTwo + "%";
+
+    //////////////////////////
+    //                      //
+    //  Declare the Winner  //
+    //                      //
+    //////////////////////////
+
+    // Bug01. [] if both player wins, is going to call out that "nameRight" won and then that "You both win".
+    //           Why is not stoping at if((widthOne + widthTwo) === 200).
+    function winner(){
+      console.log("LAYER FOUR: Who is the winner");
+      if((widthOne + widthTwo) === 220) {
+        console.log("You both win")
+        gameReset();
+      } else if (widthOne === 110) {
+        console.log(nameLeft + " " + "You WIN!");
+        playerOneWins += 1;
+        gameReset();
+      } else if (widthTwo === 110) {
+        console.log(nameRight + " " + "You WIN!")
+        playerTwoWins += 1;
+        gameReset();
+      }
+    }
     winner();
-
   });
-}
-
-function winner(){
-  if (randomOne == 100) {
-    alert(setInterval + nameLeft + " " + "You WIN!")
-    gameReset();
-  } else if (randomTwo == 100) {
-    alert(setInterval + nameRight + " " + "You WIN!")
-    gameReset();
-  }
 }

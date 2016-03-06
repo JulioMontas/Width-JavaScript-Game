@@ -51,6 +51,9 @@ header
 //                      ////////////////////////////
 //////////////////////////
 
+#rules, #replay
+  display: none
+
 // with this type of display you can only touch the div
 #menu
   display: flex
@@ -90,13 +93,7 @@ header
 #menu #container ul li a:hover
   background: #666
 
-// Remove the navigation when the game start.
-#menu #container nav
-//  display: none
 
-//Remove the REPLAY button
-#menu #container ul li:last-child
-  display: none
 
 ////////////////////
 //                ///////////////////////
@@ -153,8 +150,8 @@ header
 #gameTable section#six section.playerTwo
   margin-left: auto
 
-.fa.fa-female
+#playerOneScore .fa.fa-male
     color: #3B596A
 
-.fa.fa-male
+#playerTwoScore .fa.fa-male
     color: #3F9A82
