@@ -18,9 +18,7 @@ html(lang="en")
           |  left  
           span#OneScore  
       #winner
-        h1 player
-          span#theWinnerIs left 
-          | won
+        h1#theWinnerIs 
       #playerTwoScore
         h1 
           span#TwoScore
@@ -62,5 +60,14 @@ html(lang="en")
         section.playerOne
       section#six
         section.playerTwo
-        
+    footer
+      p 
+        span Left Press:
+        |  J 
+      p 
+        span New Game:
+        |  Space
+      p 
+        span Right Press:
+        |  F  
   script(type="text/javascript", src="js/main.js")

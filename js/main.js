@@ -7,13 +7,6 @@ console.log("O~~      O~~        O~~  O~~~~~~ O~~    O~~    O~~  O~~  O~~   O~ O
 console.log("O~~        O~~     O~~  O~~       O~~   O~~   O~~   O~~  O~~    O~ ~~   O~~    O~ ")
 console.log("O~~~~~~~~    O~~~~     O~~         O~~  O~~~~~      O~~  O~~      O~~    O~~~~~   ")
 
-// When you win
-// you going to show who won. and also a manu, and also a short cut to keep playing the game faster.
-// How do i add the value of
-
-
-// Do i need two function for game play and replay?
-
 // Calling all Global variables
 var nameLeft = "Left"
 var nameRight = "Right"
@@ -23,7 +16,8 @@ var playerTwoWins = 0;
 var header = document.querySelector('header');
 var menu = document.querySelector('nav');
 var slogan = document.querySelector('#slogan');
-
+var footer = document.querySelector('footer');
+var theWinnerIs = document.querySelector('#theWinnerIs');
 var displayGameTable = document.querySelector('#gameTable');
 
 // Calling all Global variables of player one
@@ -43,6 +37,10 @@ var playerTwoWidth = document.querySelectorAll('.playerTwo');
 for (var i = 0; i < playerTwoWidth.length; i++) {
   playerTwoWidth[i].style.width = widthTwoHits;
 }
+// Background music
+var backgroundSound = new Audio("sound/funeralCanticle.mp3");
+backgroundSound.volume = 0.2;
+backgroundSound.play();
 
 //////////////////////
 //                  //
@@ -69,6 +67,7 @@ console.log("LAYER ONE");
 
 function start() {
   header.style.display = 'flex';
+  footer.style.display = 'flex';
   menu.style.display = 'none';
   slogan.style.display = 'none';
 
@@ -109,6 +108,8 @@ function gameReset() {
   var playerTwoWidthSize = document.querySelector('#TwoScore');
   playerTwoWidthSize.innerHTML = " " + widthTwo + "%";
 
+  theWinnerIs.style.display = 'none';
+
 }
 
 /////////////////////////////////////////////
@@ -120,23 +121,41 @@ function gameReset() {
 function gameControl() {
   console.log("LAYER THREE: Game Control Loading UPPPP" + "" + "Real Time");
   window.addEventListener("keydown", function(e){
-    // Player One, Press Tab to play.
-    if(e.keyCode === 9 && document.activeElement !== 'text') {
+    // Player One, Press F to play
+    if(e.keyCode === 70 && document.activeElement !== 'text') {
       e.preventDefault();
       console.log("Player One" + widthOne);
       widthOne += 10;
       for (var i = 0; i < playerOneWidth.length; i++) {
         playerOneWidth[i].style.width = widthOne + '%';
       }
+      var snd = new Audio("sound/push.wav");
+      snd.volume = 0.5;
+      snd.play();
     }
-    // Player Two, Press Enter to play.
-    if(e.keyCode === 16 && document.activeElement !== 'text') {
+    // Player Two, Press J to play
+    if(e.keyCode === 74 && document.activeElement !== 'text') {
       e.preventDefault();
       console.log("Player Two" + widthTwo);
       widthTwo += 10;
       for (var i = 0; i < playerTwoWidth.length; i++) {
         playerTwoWidth[i].style.width = widthTwo + '%';
       }
+      var snd = new Audio("sound/push.wav");
+      snd.volume = 0.3;
+      snd.play();
+    }
+
+    // Background music
+    if(e.keyCode === 38 && document.activeElement !== 'text') {
+      e.preventDefault();
+      console.log("sound");
+      backgroundSound.volume = 0.2;
+    }
+    if(e.keyCode === 40 && document.activeElement !== 'text') {
+      e.preventDefault();
+      console.log("sound");
+      backgroundSound.volume = 0.0;
     }
 
     // Display the % of the width size but in REAL TIME
@@ -157,18 +176,47 @@ function gameControl() {
     function winner(){
       console.log("LAYER FOUR: Who is the winner");
       if((widthOne + widthTwo) === 220) {
+
         console.log("You both win")
         gameReset();
+
       } else if (widthOne === 110) {
+
         console.log(nameLeft + " " + "You WIN!");
         playerOneWins += 1;
         gameReset();
+
+        var snd = new Audio("sound/leftWon.wav");
+        snd.play();
+
+        theWinnerIs.style.display = 'flex';
+        theWinnerIs.innerHTML = nameLeft +  " " + "Won!";
+
       } else if (widthTwo === 110) {
+
         console.log(nameRight + " " + "You WIN!")
         playerTwoWins += 1;
         gameReset();
+
+        var snd = new Audio("sound/rightWon.wav");
+        snd.play();
+
+        theWinnerIs.style.display = 'flex';
+        theWinnerIs.innerHTML = nameRight +  " " + "Won!";
+
       }
     }
     winner();
+    // Press Space, To make a fresh games
+    if(e.keyCode === 32 && document.activeElement !== 'text') {
+      e.preventDefault();
+      console.log("Five FOUR:New Game");
+      playerOneWins = 0;
+      playerTwoWins = 0;
+      var snd = new Audio("sound/newGame1234Go.wav");
+      snd.play();
+      gameReset();
+    }
+
   });
 }

@@ -27,7 +27,7 @@ header {
 #winner h1 span {
   font-weight: 600; }
 
-#winner {
+#theWinnerIs {
   display: none; }
 
 #rules, #replay {
@@ -44,8 +44,8 @@ header {
   left: 0; }
 
 #menu #container {
-  height: 140px;
-  width: 468px;
+  height: 186px;
+  width: 490px;
   text-align: center; }
 
 #menu #container nav ul {
@@ -130,3 +130,25 @@ h3#slogan {
 
 #playerTwoScore .fa.fa-male {
   color: #3F9A82; }
+
+footer {
+  display: none;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+
+footer p {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 3px; }
+
+footer p span {
+  font-weight: 100;
+  color: #b3b3b3; }
+
+footer p:first-child {
+  margin-left: 10px; }
+
+footer p:last-child {
+  margin-right: 10px; }
